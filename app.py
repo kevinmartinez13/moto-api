@@ -15,3 +15,6 @@ def get_registros():
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=5000,debug=True)
+
+@app.route('/api/repuestos', methods=['GET'])
+def get_repuestos():
