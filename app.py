@@ -18,3 +18,16 @@ if __name__ == '__main__':
 
 @app.route('/api/repuestos', methods=['GET'])
 def get_repuestos():
+@app.route('/api/peritajes', methods=['POST'])
+def registrar_peritaje():
+    from flask import request
+    datos = request.get_json()
+
+    # FORZAR FORMATEO A MAYÚSCULAS ESTRICTAS (Solución del Bug)
+    placa_recibida = datos.get('placa', '')
+    placa_procesada = placa_recibida.upper()
+
+    return jsonify({
+        "status": "Peritaje registrado con exito",
+        "placa_guardada": placa_procesada
+    })
